@@ -16,7 +16,6 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.9'
-          cache: 'pip'
       - name: execute Python script
         run: python code.py # changed into my .py file name
       - name: commit files # create env variable indicating if any changes were made
