@@ -21,8 +21,8 @@ jobs:
         run: python code.py # changed into my .py file name
       - name: commit files # create env variable indicating if any changes were made
         run: |
-          git config local user.name 'bbguk' # changed to my username
-          git config local user.email 'jxyeah1958@gmail.com' # changed to my email address
+          git config local user.name bbguk # changed to my username
+          git config local user.email jxyeah1958@gmail.com # changed to my email address
           git add --all
           git push origin main
         env:
