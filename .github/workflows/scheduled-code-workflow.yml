@@ -7,7 +7,7 @@ on:
   workflow_dispatch:  # manual triggers
 
 jobs:
-  build:
+  run-scheduled-code:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo content
@@ -24,8 +24,7 @@ jobs:
           git config local user.name 'bbguk' # changed to my username
           git config local user.email 'jxyeah1958@gmail.com' # changed to my email address
           git add --all
-          git commit -am "GH ACTION Headlines $(date)"
           git push origin main
-       env:
-         REPO_KEY: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-         username:github-actions
+        env:
+          REPO_KEY: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          username: github-actions
