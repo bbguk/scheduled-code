@@ -27,8 +27,6 @@ jobs:
           git add --all
           git commit -am "GH ACTION Headlines $(date)"
           git push origin main
-      - name: Commit and push if changes
-        if: env.changes == 'true' # if changes made push new data to repo
-        run: |
-          REPO_KEY: $   # secret token to be created
-          username: github-actions
+       env:
+         REPO_KEY: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+         username:github-actions
