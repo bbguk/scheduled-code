@@ -1,4 +1,4 @@
-name: data-pipeline-workflow
+name: scheduled-code-workflow
 
 on:
   # push: # uncomment to run on push
