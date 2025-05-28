@@ -7,8 +7,9 @@ on:
   workflow_dispatch:  # manual triggers
 
 jobs:
-  run-data-pipeline:
+  build:
     runs-on: ubuntu-latest
+    
     steps:
       - name: Checkout repo content
         uses: actions/checkout@v4
@@ -17,17 +18,17 @@ jobs:
         with:
           python-version: '3.9'
           cache: 'pip'
-      - name: Run data pipeline
+      - name: execute Python script
         run: python code.py # changed into my .py file name
-      - name: Check for changes # create env variable indicating if any changes were made
-        id: git-check
+      - name: commit files # create env variable indicating if any changes were made
         run: |
           git config local user.name 'bbguk' # changed to my username
           git config local user.email 'jxyeah1958@gmail.com' # changed to my email address
-          git add .
-          git diff --staged --quiet || echo "changes=true" >> $GITHUB_ENV 
+          git add --all
+          git commit -am "GH ACTION Headlines $(date)"
+          git push origin main
       - name: Commit and push if changes
         if: env.changes == 'true' # if changes made push new data to repo
         run: |
-          git commit -m "updated video index"
-          git push
+          REPO_KEY: $   # secret token to be created
+          username: github-actions
