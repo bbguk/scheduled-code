@@ -23,7 +23,7 @@ jobs:
           git config user.name bbguk # changed to my username
           git config user.email jxyeah1958@gmail.com # changed to my email address
           git add --all
-          git push origin main
+          git push
         env:
           REPO_KEY: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           username: github-actions
