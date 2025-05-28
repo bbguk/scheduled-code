@@ -1,0 +1,16 @@
+name: scheduled-code
+
+on:
+  push:
+    workflow_dispatch:
+      schedule:
+        - cron: "* * * * *"
+
+jobs:
+  run-scheduled-code:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repo content
+        uses: actions/checkout@v4
+        with:
+          token 
