@@ -17,8 +17,6 @@ jobs:
         with:
           python-version: '3.9'
           cache: 'pip'
-      # - name: Install dependencies
-      #   run: pip install -r requirements.txt
       - name: Run data pipeline
         run: python code.py # changed into my .py file name
       - name: Check for changes # create env variable indicating if any changes were made
