@@ -22,14 +22,12 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
       - name: Run data pipeline
-        env:
-          YT_API_KEY: ${{ secrets.YT_API_KEY }} # import API key
-        run: python code.py # run data pipeline
+        run: python code.py # vhange into my .py file name
       - name: Check for changes # create env variable indicating if any changes were made
         id: git-check
         run: |
-          git config user.name 'github-actions'
-          git config user.email 'github-actions@github.com'
+          git config local user.name 'bbguk' # changed to my username
+          git config local user.email 'jxyeah1958@gmail.com' # changed to my email address
           git add .
           git diff --staged --quiet || echo "changes=true" >> $GITHUB_ENV 
       - name: Commit and push if changes
